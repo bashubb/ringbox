@@ -183,7 +183,7 @@
 .island:not(.solid) { --island-bg: #151515; --glass-line: rgba(255, 255, 255, 0.1); }
 
 /* Phone mockups in cards stand up as the card comes into view: no roll, no skew, never cropped at the sides */
-.way-phone { margin-top: auto; height: 300px; display: flex; justify-content: center; perspective: 1400px; clip-path: inset(-120px -120px 0 -120px); }
+.way-phone { margin-top: auto; height: 300px; display: flex; justify-content: center; perspective: 2600px; perspective-origin: 50% 85%; clip-path: inset(-120px -120px 0 -120px); }
 .way-phone .iphone { --w: 240px; margin-top: var(--s-300); transform-origin: 50% 100%; transform: translateY(48px) rotateX(28deg); opacity: 0.5;
   transition: transform 1400ms var(--ease) 150ms, opacity 900ms var(--ease) 150ms; }
 .way.in .way-phone .iphone { transform: none; opacity: 1; }
