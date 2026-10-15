@@ -204,3 +204,7 @@
   .chips span { font-size: 12px; padding: var(--s-50) var(--s-100); }
   .way-steps li { font-size: 14px; line-height: 20px; }
 }
+
+/* card phones always stand upright: no lying-down start state */
+.way-phone { perspective: none !important; }
+.way-phone .iphone, .tilt .iphone { transform: none !important; opacity: 1 !important; }
