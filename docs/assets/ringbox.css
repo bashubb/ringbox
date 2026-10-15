@@ -188,3 +188,16 @@
   .way-phone { height: auto; aspect-ratio: 1.15; perspective: none; }
   .way-phone .iphone, .way + .way .way-phone .iphone, .way:hover .way-phone .iphone { --w: min(58vw, 260px); transform: none; }
 }
+
+/* Phones */
+.rm-alarms { margin: var(--s-400) 0 0; padding: 0; list-style: none; display: grid; gap: var(--s-100); }
+.rm-alarms li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-200); padding: var(--s-200) var(--s-300); border-radius: 20px; background: var(--c); }
+.rm-alarms b { font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.rm-alarms span { font-weight: 700; }
+.rm-alarms em { font-style: normal; font-size: 14px; color: rgba(21, 21, 21, 0.7); }
+.rm-how figure { margin: 0; width: 66vw; max-width: 280px; text-align: center; }
+.rm-how figcaption { margin-top: var(--s-200); font-size: 14px; line-height: 20px; color: var(--muted); }
+.rm-how figcaption b { display: block; color: var(--text); font-size: 16px; line-height: 24px; }
+/* The ink island stays ink when it docks and on touch devices */
+.island.docked, .island.docked.island { background: #151515; }
+@media (pointer: coarse) { .island { background: #151515; } }

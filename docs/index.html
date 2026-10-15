@@ -20,8 +20,8 @@
 <link rel="icon" href="assets/fav/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/fav/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/landing.css?v=6">
-<link rel="stylesheet" href="assets/ringbox.css?v=10">
+<link rel="stylesheet" href="assets/landing.css?v=7">
+<link rel="stylesheet" href="assets/ringbox.css?v=12">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -140,7 +140,7 @@
   </div>
 </section>
 
-<section class="scene drum-scene" id="ideas" data-scene="drum" aria-labelledby="ideas-title">
+<section class="scene drum-scene d-only" id="ideas" data-scene="drum" aria-labelledby="ideas-title">
   <div class="scene-pin">
     <div class="wrap drum-grid">
       <div>
@@ -156,13 +156,27 @@
   </div>
 </section>
 
+<section class="m-only pad rm-ideas" aria-labelledby="rm-ideas-title">
+  <div class="wrap">
+    <span class="eyebrow">Not just for mornings</span>
+    <h2 class="title" id="rm-ideas-title">What should get your attention?</h2>
+    <ul class="rm-alarms">
+      <li style="--c:var(--sun)"><b>6:30</b><span>Coffee machine ☕</span><em>0:18</em></li>
+      <li style="--c:var(--sky)"><b>7:00</b><span>“Rise and shine, it’s Friday”</span><em>0:04</em></li>
+      <li style="--c:var(--lime)"><b>8:15</b><span>Take your meds 💊</span><em>0:03</em></li>
+      <li style="--c:var(--coral)"><b>12:40</b><span>Woof 🐕</span><em>0:02</em></li>
+      <li style="--c:var(--lilac)"><b>17:30</b><span>Take the cake out 🎂</span><em>0:03</em></li>
+    </ul>
+  </div>
+</section>
+
 <section class="tagline-band" aria-label="Ringbox in one line">
   <div class="wrap">
     <p class="tagline" data-tagline><span class="hl">Not another beep.</span><br>Wake up to your own voice, your favorite song or your dog.</p>
   </div>
 </section>
 
-<section class="scene prism-scene" id="how" data-scene="prism" aria-labelledby="how-title">
+<section class="scene prism-scene d-only" id="how" data-scene="prism" aria-labelledby="how-title">
   <div class="scene-pin">
     <div class="wrap prism-grid">
       <div class="psteps">
@@ -186,6 +200,15 @@
         <div class="iphone spin" id="spin" data-finish="pro-orange"><img class="front" id="spin-front" src="assets/media/iphone-f5-recording.webp" alt="Ringbox on iPhone: recording a sound, trimming the best part, then the alarm is set" width="780" height="1608"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="m-only pad rm-how" style="background:var(--bg-2)" aria-labelledby="rm-how-title">
+  <div class="wrap"><span class="eyebrow">How it works</span><h2 class="title" id="rm-how-title">From a sound to an alarm in under two minutes.</h2></div>
+  <div class="m-rail">
+    <figure><div class="m-phone"><img src="assets/media/iphone-f5-recording.webp" alt="Recording a sound: 0:05.1 of 1:30" width="780" height="1608" loading="lazy"></div><figcaption><b>1 · Record or import.</b> Up to 1:30 of material.</figcaption></figure>
+    <figure><div class="m-phone"><img src="assets/media/iphone-f5-trim.webp" alt="Trimming the best part of the sound" width="780" height="1608" loading="lazy"></div><figcaption><b>2 · Keep the best part.</b> Up to 29 seconds.</figcaption></figure>
+    <figure><div class="m-phone"><img src="assets/media/iphone-f7-done.webp" alt="All set: the alarm rings with your sound" width="780" height="1608" loading="lazy"></div><figcaption><b>3 · Hear it ring for real.</b> A test alarm two minutes out.</figcaption></figure>
   </div>
 </section>
 
