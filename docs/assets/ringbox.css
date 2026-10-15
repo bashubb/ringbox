@@ -206,3 +206,17 @@
 .rm-lock .btns span { min-height: 44px; }
 .rm-price { margin-top: var(--s-300); }
 .m-dock .btn[aria-disabled="true"] { background: var(--sun); color: var(--text); }
+
+/* ===== Phones: same scenes, tighter content ===== */
+@media (max-width: 720px) {
+  .plans { grid-template-columns: 1fr 1fr; gap: var(--s-100); }
+  .plan { padding: var(--s-200); border-radius: 24px; gap: var(--s-100); }
+  .plan .price { font-size: 24px; line-height: 32px; }
+  .plan li { font-size: 12px; line-height: 16px; }
+  .plan li svg { width: 14px; height: 14px; margin-top: 1px; }
+  .plan .note { font-size: 12px; line-height: 16px; }
+  .lock { padding: var(--s-300); border-radius: 32px; gap: var(--s-200); }
+  .lock .clock { font-size: 60px; }
+  .chips span { font-size: 12px; padding: var(--s-50) var(--s-100); }
+  .way-steps li { font-size: 14px; line-height: 20px; }
+}
