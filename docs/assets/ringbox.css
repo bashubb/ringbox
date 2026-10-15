@@ -190,3 +190,19 @@
 @media (hover: hover) and (pointer: fine) { .way.in:hover .way-phone .iphone { transform: translateY(-10px); transition-delay: 0s; } }
 @media (max-width: 720px) { .way-phone { height: 270px; } .way-phone .iphone { --w: min(56vw, 230px); } }
 @media (prefers-reduced-motion: reduce) { .way-phone .iphone { transform: none; opacity: 1; } }
+
+/* ===== Phone page ===== */
+.rm-ring { margin-top: var(--s-400); aspect-ratio: auto; height: 220px; padding: var(--s-300); border-radius: 32px; transform: none; }
+.rm-ring .time { font-size: 72px; }
+.rm-ring .time svg { width: 32px; height: 32px; }
+.rm-pane { padding-top: var(--s-300); }
+.rm-list { margin: 0 0 var(--s-300); padding-left: var(--s-300); display: grid; gap: var(--s-75); font-weight: 600; }
+.rm-alarms li { width: 160px; padding: var(--s-200); border-radius: 20px; background: var(--c); display: grid; gap: var(--s-50); }
+.rm-alarms b { font-size: 30px; line-height: 36px; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.rm-alarms span { font-size: 14px; line-height: 20px; font-weight: 700; }
+.rm-lock { margin-top: var(--s-300); padding: var(--s-300); border-radius: 32px; gap: var(--s-200); }
+.rm-lock .clock { font-size: 60px; }
+.rm-lock .wave { height: 32px; }
+.rm-lock .btns span { min-height: 44px; }
+.rm-price { margin-top: var(--s-300); }
+.m-dock .btn[aria-disabled="true"] { background: var(--sun); color: var(--text); }
