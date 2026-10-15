@@ -27,7 +27,7 @@
 /* Ink island, like the app's floating tab bar */
 .island { color: #fff; }
 .island .links a { color: rgba(255, 255, 255, 0.72); }
-.island .links a:hover, .island .links a[aria-current="true"] { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .island .links a:hover, .island .links a[aria-current="true"] { color: #fff; } }
 .island .cta[aria-disabled="true"] { background: var(--sun); color: var(--text); }
 .burger span { background: #fff; }
 
@@ -43,7 +43,7 @@
   display: flex; flex-direction: column; justify-content: space-between; padding: var(--s-600);
   transform: rotate(-3deg); transition: transform 1200ms var(--ease);
 }
-.ring-card:hover { transform: rotate(0deg) scale(1.01); }
+@media (hover: hover) and (pointer: fine) { .ring-card:hover { transform: rotate(0deg) scale(1.01); } }
 .ring-card .wave { display: flex; align-items: center; gap: 6px; height: 45%; }
 .ring-card .wave i { flex: 1; border-radius: 9999px; background: var(--text); height: var(--h); animation: bar 1.6s var(--ease) infinite alternate; animation-delay: var(--d); }
 @keyframes bar { from { transform: scaleY(0.35); } to { transform: scaleY(1); } }
@@ -87,7 +87,7 @@
 @media (max-width: 900px) { .prism-grid { grid-template-columns: 1fr; gap: var(--s-300); } }
 .prism-view { height: min(78vh, 680px); perspective: 1600px; display: grid; place-items: center; }
 .spin { --w: calc(min(78vh, 680px) * 0.44); transform: rotateY(-22deg) rotateX(8deg) rotateZ(-3deg); }
-@media (max-width: 900px) { .prism-view { height: 56vh; } .spin { --w: calc(56vh * 0.44); } }
+@media (max-width: 900px) { .prism-view { height: calc(100svh - 330px - var(--ui-bottom)); } .spin { --w: calc((100svh - 330px - var(--ui-bottom)) * 0.44); } }
 .psteps { position: relative; min-height: 240px; }
 @media (max-width: 900px) { .psteps { min-height: 150px; order: 2; } .psteps .lead { margin-top: var(--s-100); font-size: 16px; line-height: 24px; } .psteps h2.title { font-size: 30px; line-height: 36px; } }
 .pstep { position: absolute; inset: 0 0 auto 0; opacity: 0; transform: translateY(24px); filter: blur(8px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), filter var(--dur) var(--ease); }
@@ -105,7 +105,7 @@
 /* Record & time */
 .blobs { margin-top: var(--s-600); }
 .blob { border-radius: 32px; padding: var(--s-400); display: flex; flex-direction: column; gap: var(--s-200); min-height: 280px; background: var(--c); transition: transform var(--dur) var(--ease); }
-.blob:hover { transform: translateY(-4px) rotate(-1deg); }
+@media (hover: hover) and (pointer: fine) { .blob:hover { transform: translateY(-4px) rotate(-1deg); } }
 .blob .big { font-size: 48px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; margin-top: auto; }
 .blob .k { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 9999px; background: var(--text); color: #fff; font-size: 14px; font-weight: 700; }
 .blob p { color: rgba(21, 21, 21, 0.72); }
@@ -161,7 +161,7 @@
 .ways { margin-top: var(--s-600); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-300); }
 @media (max-width: 900px) { .ways { grid-template-columns: 1fr; } }
 .way { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: var(--s-300); padding: var(--s-500) var(--s-500) 0; border-radius: 40px; background: var(--c); color: var(--text); transition: transform var(--dur) var(--ease); }
-.way:hover { transform: translateY(-4px); }
+@media (hover: hover) and (pointer: fine) { .way:hover { transform: translateY(-4px); } }
 @media (max-width: 480px) { .way { padding: var(--s-300) var(--s-300) 0; border-radius: 32px; } }
 .way-head { display: flex; align-items: center; gap: var(--s-200); }
 .way-head h3 { font-size: 36px; line-height: 40px; letter-spacing: -0.03em; }
@@ -177,8 +177,14 @@
 .way-phone { margin-top: auto; height: 300px; perspective: 1400px; display: flex; justify-content: center; overflow: hidden; }
 .way-phone .iphone { --w: 240px; margin-top: var(--s-200); transform: rotateX(16deg) rotateZ(-3deg); transform-origin: 50% 0; transition: transform 1200ms var(--ease); }
 .way + .way .way-phone .iphone { transform: rotateX(16deg) rotateZ(3deg); }
-.way:hover .way-phone .iphone { transform: rotateX(6deg) translateY(-12px); }
+@media (hover: hover) and (pointer: fine) { .way:hover .way-phone .iphone { transform: rotateX(6deg) translateY(-12px); } }
 @media (prefers-reduced-motion: reduce) { .way-phone .iphone, .way:hover .way-phone .iphone { transform: none; } }
 
 /* The app icon is black: give it an edge on the ink island */
 .island .brand img { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22); }
+
+/* Phones: no 3D tilt in the mode cards (it distorts the body at small widths); size from the card width */
+@media (max-width: 720px) {
+  .way-phone { height: auto; aspect-ratio: 1.15; perspective: none; }
+  .way-phone .iphone, .way + .way .way-phone .iphone, .way:hover .way-phone .iphone { --w: min(58vw, 260px); transform: none; }
+}
