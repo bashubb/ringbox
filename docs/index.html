@@ -1,23 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js" data-store="soon">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fbf8f1">
-<meta name="color-scheme" content="light">
-<title>Ringbox — Alarms That Sound Like You | iPhone</title>
-<meta name="description" content="Ringbox turns your voice, a favorite sound or a piece of a song into a dependable iPhone alarm. Record, trim, and hear it ring — even in Silent Mode. Record a reminder and set a timer in three taps, right from a widget or Control Center. Coming soon.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ringbox: Alarms That Sound Like You, for iPhone</title>
+<meta name="description" content="Ringbox turns your voice, a favorite sound or the best part of a song into a real iPhone alarm that rings through Silent Mode and Focus. Record a reminder and set a timer in three taps. Coming soon.">
 <link rel="canonical" href="https://bashubb.com/ringbox/">
+<meta name="theme-color" content="#f4f2ed">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ringbox">
-<meta property="og:title" content="Ringbox — Your alarm shouldn’t sound like everyone else’s">
+<meta property="og:title" content="Ringbox: Your alarm shouldn’t sound like everyone else’s">
 <meta property="og:description" content="Record a voice, a sound or a song and make it your alarm. Coming soon to iPhone.">
 <meta property="og:url" content="https://bashubb.com/ringbox/">
-<meta property="og:image" content="https://bashubb.com/ringbox/assets/app-icon-512.png">
+<meta property="og:image" content="https://bashubb.com/ringbox/assets/icon-512.png">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="assets/app-icon-128.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="icon" href="assets/fav/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/fav/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="assets/fav/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/fav/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/landing.css?v=3">
+<link rel="stylesheet" href="assets/ringbox.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,166 +30,362 @@
   "url": "https://bashubb.com/ringbox/",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "iOS 26.1 or later",
-  "image": "https://bashubb.com/ringbox/assets/app-icon-512.png",
+  "image": "https://bashubb.com/ringbox/assets/icon-512.png",
   "description": "An iPhone alarm app that turns your voice, a favorite sound or a short piece of a song into a dependable personal alarm.",
   "publisher": {"@type": "Organization", "name": "bashubb", "url": "https://bashubb.com/"}
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Will my alarm ring in Silent Mode or Focus?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ringbox schedules real system alarms with Apple’s AlarmKit, which ring on the Lock Screen and through Silent Mode and Focus, like the built in Clock app."}},
+    {"@type": "Question", "name": "How long can a sound be?", "acceptedAnswer": {"@type": "Answer", "text": "You can record or import up to 1:30 and keep up to 29 seconds of it as the alarm sound, the most iOS allows for an alarm."}},
+    {"@type": "Question", "name": "Can I use a song?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Import an audio file you have in Files and keep the best part. Protected songs from streaming services can’t be imported."}},
+    {"@type": "Question", "name": "Is Ringbox free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Alarms and timers are free and unlimited, and your first custom sound is free too. Ringbox Plus adds unlimited sounds and widgets."}}
+  ]
+}
+</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-alarm" viewBox="0 0 256 256" fill="currentColor"><path d="M128,36A100,100,0,1,0,228,136,100.11,100.11,0,0,0,128,36Zm0,176a76,76,0,1,1,76-76A76.08,76.08,0,0,1,128,212ZM32.49,72.49a12,12,0,1,1-17-17l32-32a12,12,0,1,1,17,17Zm208,0a12,12,0,0,1-17,0l-32-32a12,12,0,1,1,17-17l32,32A12,12,0,0,1,240.49,72.49ZM176,124a12,12,0,0,1,0,24H128a12,12,0,0,1-12-12V88a12,12,0,0,1,24,0v36Z"/></symbol><symbol id="i-apple-logo" viewBox="0 0 256 256" fill="currentColor"><path d="M227,168a12,12,0,0,0-4.21-5.09C207.25,152.22,204,133.68,204,120c0-16.17,12.68-30.6,20.25-37.76a12,12,0,0,0,0-17.43C210.89,52.17,188.81,44,168,44a76.29,76.29,0,0,0-40,11.37,75.59,75.59,0,0,0-93.58,11A78.64,78.64,0,0,0,12,123.51,131,131,0,0,0,53.43,216,43.81,43.81,0,0,0,83.6,228h87.69a43.87,43.87,0,0,0,32.05-13.85,127.63,127.63,0,0,0,18.4-25.39c1.57-2.88,3-5.71,4.14-8.41C227.47,176.67,229.12,172.87,227,168Zm-41.23,29.82A19.78,19.78,0,0,1,171.29,204H83.6a19.85,19.85,0,0,1-13.7-5.42A107.18,107.18,0,0,1,36,122.88,54.49,54.49,0,0,1,51.5,83.28,50.86,50.86,0,0,1,88,68h.72A51.5,51.5,0,0,1,120.48,79.4a12,12,0,0,0,15,0A51.41,51.41,0,0,1,168,68a67.24,67.24,0,0,1,29.88,7.4C186.26,89.66,180,105.13,180,120c0,23.33,7.47,42.89,21.25,56.19A103.3,103.3,0,0,1,185.76,197.81ZM128.75,13A43.83,43.83,0,0,1,142.17,1.51a12,12,0,0,1,11.64,21,19.84,19.84,0,0,0-6.11,5.24A12,12,0,0,1,128.75,13Z"/></symbol><symbol id="i-bell-ringing" viewBox="0 0 256 256" fill="currentColor"><path d="M225.81,74.65A11.86,11.86,0,0,1,220.3,76a12,12,0,0,1-10.67-6.47,90.1,90.1,0,0,0-32-35.38,12,12,0,1,1,12.8-20.29,115.25,115.25,0,0,1,40.54,44.62A12,12,0,0,1,225.81,74.65ZM46.37,69.53a90.1,90.1,0,0,1,32-35.38A12,12,0,1,0,65.6,13.86,115.25,115.25,0,0,0,25.06,58.48a12,12,0,0,0,5.13,16.17A11.86,11.86,0,0,0,35.7,76,12,12,0,0,0,46.37,69.53Zm173.51,98.35A20,20,0,0,1,204,200H171.81a44,44,0,0,1-87.62,0H52a20,20,0,0,1-15.91-32.12c7.17-9.33,15.73-26.62,15.88-55.94A76,76,0,0,1,204,112C204.15,141.26,212.71,158.55,219.88,167.88ZM147.6,200H108.4a20,20,0,0,0,39.2,0Zm48.74-24c-8.16-13-16.19-33.57-16.34-63.94A52,52,0,1,0,76,112c-.15,30.42-8.18,51-16.34,64Z"/></symbol><symbol id="i-check" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></symbol><symbol id="i-infinity" viewBox="0 0 256 256" fill="currentColor"><path d="M252,128a60,60,0,0,1-102.43,42.43l-.49-.53L89.22,102.31a36,36,0,1,0,0,51.38l3.08-3.48a12,12,0,1,1,18,15.91l-3.35,3.78-.49.53a60,60,0,1,1,0-84.86l.49.53,59.86,67.59a36,36,0,1,0,0-51.38l-3.08,3.48a12,12,0,1,1-18-15.91l3.35-3.78.49-.53A60,60,0,0,1,252,128Z"/></symbol><symbol id="i-lock-simple" viewBox="0 0 256 256" fill="currentColor"><path d="M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Z"/></symbol><symbol id="i-microphone" viewBox="0 0 256 256" fill="currentColor"><path d="M128,180a52.06,52.06,0,0,0,52-52V64A52,52,0,0,0,76,64v64A52.06,52.06,0,0,0,128,180ZM100,64a28,28,0,0,1,56,0v64a28,28,0,0,1-56,0Zm40,155.22V240a12,12,0,0,1-24,0V219.22A92.14,92.14,0,0,1,36,128a12,12,0,0,1,24,0,68,68,0,0,0,136,0,12,12,0,0,1,24,0A92.14,92.14,0,0,1,140,219.22Z"/></symbol><symbol id="i-moon" viewBox="0 0 256 256" fill="currentColor"><path d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z"/></symbol><symbol id="i-play" viewBox="0 0 256 256" fill="currentColor"><path d="M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z"/></symbol><symbol id="i-plus" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></symbol><symbol id="i-speaker-high" viewBox="0 0 256 256" fill="currentColor"><path d="M157.27,21.22a12,12,0,0,0-12.64,1.31L75.88,76H32A20,20,0,0,0,12,96v64a20,20,0,0,0,20,20H75.88l68.75,53.47A12,12,0,0,0,164,224V32A12,12,0,0,0,157.27,21.22ZM36,100H68v56H36Zm104,99.46L92,162.13V93.87l48-37.33ZM212,128a44,44,0,0,1-11,29.11,12,12,0,1,1-18-15.88,20,20,0,0,0,0-26.43,12,12,0,0,1,18-15.86A43.94,43.94,0,0,1,212,128Zm40,0a83.87,83.87,0,0,1-21.39,56,12,12,0,0,1-17.89-16,60,60,0,0,0,0-80,12,12,0,1,1,17.88-16A83.87,83.87,0,0,1,252,128Z"/></symbol><symbol id="i-timer" viewBox="0 0 256 256" fill="currentColor"><path d="M128,44a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,44Zm0,168a72,72,0,1,1,72-72A72.08,72.08,0,0,1,128,212ZM164.49,99.51a12,12,0,0,1,0,17l-28,28a12,12,0,0,1-17-17l28-28A12,12,0,0,1,164.49,99.51ZM92,16A12,12,0,0,1,104,4h48a12,12,0,0,1,0,24H104A12,12,0,0,1,92,16Z"/></symbol></svg>
+
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <nav class="nav wrap" aria-label="Main navigation">
-    <a class="brand" href="./"><img src="assets/app-icon-128.png" alt="" width="34" height="34">Ringbox</a>
-    <div class="nav-links"><a href="#how">How it works</a><a href="#plus">Pricing</a><a href="privacy/">Privacy</a><a href="support/">Support</a></div>
-  </nav>
-</header>
+
+<nav class="island" aria-label="Main navigation">
+  <a class="brand" href="./"><img src="assets/icon-128.png" alt="" width="28" height="28">Ringbox</a>
+  <div class="links">
+    <a href="#two">Alarm and timer</a>
+    <a href="#ideas">Ideas</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <span class="btn sm cta when-soon" aria-disabled="true">Coming soon</span>
+  <a class="btn sm cta when-live" href="https://apps.apple.com/us/search?term=Ringbox" data-store-link>Download</a>
+  <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <a href="#two">Alarm and timer</a>
+  <a href="#ideas">Ideas</a>
+  <a href="#how">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="support/">Support</a>
+</div>
+
 <main id="main">
-<section class="hero">
+
+<section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
-    <div>
+    <div class="reveal">
       <span class="eyebrow">Personal alarms for iPhone</span>
-      <h1>Your alarm shouldn’t sound like everyone else’s.</h1>
-      <p class="lead">Record a voice, pick a sound you love or keep the best bit of a song — Ringbox turns it into an alarm that actually gets your attention.</p>
-      <span class="pill">Coming soon <span>to the App Store</span></span>
-      <ul class="ticks"><li>Rings in Silent Mode</li><li>Unlimited alarms &amp; timers, free</li><li>Record &amp; time in three taps</li><li>Sounds stay on your iPhone</li></ul>
+      <h1 class="hero-title" id="hero-title">Your alarm shouldn’t sound<br>like everyone else’s.</h1>
+      <p class="lead">Alarms that ring with your voice, a song or any sound you love. Plus a quick timer you set by just saying what it’s for, so it rings with your own words.</p>
+      <div class="cta-row">
+        <span class="btn when-soon" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple-logo"/></svg>Coming soon to the App Store</span>
+        <a class="store-badge when-live" href="https://apps.apple.com/us/search?term=Ringbox" data-store-link><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"></a>
+      </div>
+      <ul class="proof" aria-label="Highlights">
+        <li><svg aria-hidden="true"><use href="#i-bell-ringing"/></svg>Rings in Silent Mode and Focus</li>
+        <li><svg aria-hidden="true"><use href="#i-infinity"/></svg>Unlimited alarms, free</li>
+        <li><svg aria-hidden="true"><use href="#i-lock-simple"/></svg>Sounds stay on your iPhone</li>
+      </ul>
     </div>
-    <div class="wave-card" aria-hidden="true">
-      <div class="wave"><i class="grey" style="--h:24px;--d:0.21s"></i><i class="grey" style="--h:38px;--d:0.19s"></i><i class="grey" style="--h:51px;--d:0.17s"></i><i class="grey" style="--h:73px;--d:0.15s"></i><i class="grey" style="--h:43px;--d:0.13s"></i><i style="--h:92px;--d:0.10s"></i><i style="--h:127px;--d:0.08s"></i><i style="--h:86px;--d:0.06s"></i><i style="--h:57px;--d:0.04s"></i><i style="--h:103px;--d:0.02s"></i><i style="--h:151px;--d:0.00s"></i><i style="--h:97px;--d:0.02s"></i><i style="--h:65px;--d:0.04s"></i><i style="--h:113px;--d:0.06s"></i><i style="--h:184px;--d:0.08s"></i><i style="--h:130px;--d:0.10s"></i><i style="--h:76px;--d:0.13s"></i><i style="--h:100px;--d:0.15s"></i><i style="--h:159px;--d:0.17s"></i><i style="--h:111px;--d:0.19s"></i><i style="--h:68px;--d:0.21s"></i></div>
-      <div class="wave-time"><svg class="bell" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg>7:00</div>
-    </div>
-  </div>
-</section>
-
-<section class="center" id="ideas">
-  <div class="wrap">
-    <span class="eyebrow">Not just for mornings</span>
-    <h2>What should get your attention?</h2>
-    <p class="lead">A voice, a moment, a reminder you can’t miss — for waking up, medication, cooking, leaving home or anything in between.</p>
-    <div class="ideas">
-      <div class="idea" style="background:var(--amber-soft);--d:0.0s"><svg class="art oven" viewBox="0 0 56 48" aria-hidden="true"><g class="steam" stroke="#2B2620" stroke-width="3" stroke-linecap="round" opacity=".4"><path d="M19 9v-6"/><path d="M28 9v-6"/><path d="M37 9v-6"/></g><rect x="6" y="13" width="44" height="33" rx="7" fill="#fff" stroke="#2B2620" stroke-width="2"/><circle cx="13" cy="19" r="2" fill="#2B2620"/><circle cx="19" cy="19" r="2" fill="#2B2620"/><rect class="glow" x="12" y="25" width="32" height="17" rx="4" fill="#E4A447" stroke="#2B2620" stroke-width="1.5"/><rect x="21" y="33" width="14" height="6" rx="2" fill="#F4B6C2"/><circle cx="28" cy="31" r="2" fill="#E5484D"/></svg><strong>Take the cake out</strong><div class="mini" aria-hidden="true"><b style="--h:5px;--d:0.00s"></b><b style="--h:13px;--d:0.13s"></b><b style="--h:8px;--d:0.26s"></b><b style="--h:17px;--d:0.39s"></b><b style="--h:10px;--d:0.52s"></b><b style="--h:14px;--d:0.65s"></b><b style="--h:7px;--d:0.08s"></b></div><small>00:03</small></div>
-      <div class="idea" style="background:var(--mist);--d:-0.7s"><svg class="art dog" viewBox="0 0 56 48" aria-hidden="true"><g class="head"><ellipse class="ear l" cx="14" cy="18" rx="6.5" ry="12" fill="#8A5A3C"/><ellipse class="ear r" cx="42" cy="18" rx="6.5" ry="12" fill="#8A5A3C"/><circle cx="28" cy="24" r="17" fill="#D9A066"/><ellipse cx="28" cy="32" rx="9" ry="6.5" fill="#F2D3A8"/><ellipse cx="28" cy="28" rx="3.5" ry="2.5" fill="#2B2620"/><rect class="tongue" x="24.5" y="35" width="7" height="5" rx="3.5" fill="#C2414B"/><circle cx="23" cy="20" r="2" fill="#2B2620"/><circle cx="33" cy="20" r="2" fill="#2B2620"/></g></svg><strong>Woof!</strong><div class="mini" aria-hidden="true"><b style="--h:4px;--d:0.20s"></b><b style="--h:9px;--d:0.33s"></b><b style="--h:16px;--d:0.46s"></b><b style="--h:7px;--d:0.59s"></b><b style="--h:13px;--d:0.02s"></b><b style="--h:6px;--d:0.15s"></b><b style="--h:11px;--d:0.28s"></b></div><small>00:02</small></div>
-      <div class="idea" style="background:var(--sage);--d:-1.4s"><svg class="art phone" viewBox="0 0 56 48" aria-hidden="true"><g class="waves" fill="none" stroke="#E4A447" stroke-width="2" stroke-linecap="round"><path d="M11 17a12 12 0 0 0 0 14"/><path d="M45 17a12 12 0 0 1 0 14"/></g><g class="body"><rect x="17" y="5" width="22" height="38" rx="6" fill="#2B2620"/><rect x="20" y="9" width="16" height="26" rx="3" fill="#E4A447"/><path d="M28 25s-5-3-5-6a2.6 2.6 0 0 1 5-1 2.6 2.6 0 0 1 5 1c0 3-5 6-5 6z" fill="#E5484D"/></g></svg><strong>Call Mom.</strong><div class="mini" aria-hidden="true"><b style="--h:8px;--d:0.40s"></b><b style="--h:12px;--d:0.53s"></b><b style="--h:6px;--d:0.66s"></b><b style="--h:15px;--d:0.09s"></b><b style="--h:9px;--d:0.22s"></b><b style="--h:13px;--d:0.35s"></b><b style="--h:5px;--d:0.48s"></b></div><small>00:04</small></div>
-      <div class="idea" style="background:var(--rose);--d:-2.1s"><svg class="art laugh" viewBox="0 0 56 48" aria-hidden="true"><g class="face"><circle cx="28" cy="25" r="19" fill="#F7C948"/><path d="M18 19l4 3-4 3M38 19l-4 3 4 3" fill="none" stroke="#2B2620" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 28h18a9 9 0 0 1-18 0z" fill="#2B2620"/><ellipse class="tear" cx="9" cy="27" rx="2" ry="3" fill="#5AB0F0"/><ellipse class="tear" cx="47" cy="27" rx="2" ry="3" fill="#5AB0F0"/></g></svg><strong>Ha ha ha!</strong><div class="mini" aria-hidden="true"><b style="--h:6px;--d:0.60s"></b><b style="--h:15px;--d:0.03s"></b><b style="--h:10px;--d:0.16s"></b><b style="--h:18px;--d:0.29s"></b><b style="--h:8px;--d:0.42s"></b><b style="--h:14px;--d:0.55s"></b><b style="--h:6px;--d:0.68s"></b></div><small>00:03</small></div>
-      <div class="idea" style="background:var(--lavender);--d:-2.8s"><svg class="art walkman" viewBox="0 0 56 48" aria-hidden="true"><text class="note n1" x="40" y="12" font-size="10" fill="#2B2620">♪</text><text class="note n2" x="46" y="9" font-size="9" fill="#2B2620">♫</text><rect x="5" y="14" width="46" height="30" rx="6" fill="#E36F5A" stroke="#2B2620" stroke-width="2"/><rect x="11" y="19" width="34" height="16" rx="3" fill="#fff"/><g class="reel"><circle cx="21" cy="27" r="5.5" fill="#2B2620"/><path d="M21 23.5v7M17.9 25.2l6.2 3.6M17.9 28.8l6.2-3.6" stroke="#fff" stroke-width="1.4"/></g><g class="reel"><circle cx="35" cy="27" r="5.5" fill="#2B2620"/><path d="M35 23.5v7M31.9 25.2l6.2 3.6M31.9 28.8l6.2-3.6" stroke="#fff" stroke-width="1.4"/></g><rect x="21" y="38" width="14" height="3" rx="1.5" fill="#2B2620"/></svg><strong>Your favorite song</strong><div class="mini" aria-hidden="true"><b style="--h:7px;--d:0.10s"></b><b style="--h:11px;--d:0.23s"></b><b style="--h:16px;--d:0.36s"></b><b style="--h:9px;--d:0.49s"></b><b style="--h:14px;--d:0.62s"></b><b style="--h:18px;--d:0.05s"></b><b style="--h:8px;--d:0.18s"></b><b style="--h:12px;--d:0.31s"></b><b style="--h:6px;--d:0.44s"></b></div><small>00:15</small></div>
+    <div class="ring-card reveal d1" role="img" aria-label="A ringing alarm at 7:00 playing a recorded voice">
+      <span class="label"><span class="dot"></span>Recorded by you · 0:04</span>
+      <div class="wave" aria-hidden="true"></div>
+      <div class="time"><svg aria-hidden="true"><use href="#i-bell-ringing"/></svg>7:00</div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section class="pad" id="two" aria-labelledby="two-title">
   <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">How it works</span>
-      <h2>From a sound to an alarm in under two minutes.</h2>
+    <div class="center reveal">
+      <span class="eyebrow">Two things in one</span>
+      <h2 class="title" id="two-title">An alarm for the big things.<br>A talking timer for the small ones.</h2>
     </div>
-    <div class="steps">
-      <div class="step"><span class="num">1</span><h3>Record or import</h3><p>Say something you’d genuinely like to hear, or bring in a sound or song from Files. Up to 1:30 of material.</p></div>
-      <div class="step"><span class="num">2</span><h3>Keep the best part</h3><p>Drag the edges around the moment that matters — up to 29 seconds, with fades and a volume boost if you want them.</p></div>
-      <div class="step"><span class="num">3</span><h3>Hear it ring for real</h3><p>Schedule a test alarm two minutes out and hear exactly how your morning will sound.</p></div>
+    <div class="ways">
+      <article class="way" style="--c:var(--sun)">
+        <div class="way-head">
+          <span class="way-ic"><svg aria-hidden="true"><use href="#i-alarm"/></svg></span>
+          <div><h3>Alarms</h3><span class="way-time">Real system alarms</span></div>
+        </div>
+        <ol class="way-steps">
+          <li><span>1</span>Record a voice or bring in a song from Files</li>
+          <li><span>2</span>Keep the best part, up to 29 seconds</li>
+          <li><span>3</span>Set the time, the days and the snooze</li>
+          <li><span><svg><use href="#i-bell-ringing"/></svg></span>It rings through Silent Mode and Focus</li>
+        </ol>
+        <p class="way-best"><b>Best for</b> mornings, meds, anything you can’t miss.</p>
+        <div class="way-phone"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f4-editor-new.webp" alt="New alarm screen: a big yellow 07:00 time picker, alarm name and alarm sound" width="780" height="1608" loading="lazy"></div></div>
+      </article>
+      <article class="way" style="--c:var(--coral)">
+        <div class="way-head">
+          <span class="way-ic"><svg aria-hidden="true"><use href="#i-microphone"/></svg></span>
+          <div><h3>Quick timer</h3><span class="way-time">Set in 3 seconds</span></div>
+        </div>
+        <ol class="way-steps">
+          <li><span>1</span>Tap Quick timer, from the app, a widget or Control Center</li>
+          <li><span>2</span>Say what it’s for: “Take the pizza out.”</li>
+          <li><span>3</span>Pick the minutes. That’s it</li>
+          <li><span><svg><use href="#i-speaker-high"/></svg></span>When time’s up, you hear your own words</li>
+        </ol>
+        <p class="way-best"><b>Best for</b> the oven, the parking meter, the laundry.</p>
+        <div class="way-phone"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f6-quick-record.webp" alt="Quick timer screen: Say what it should remind you of, recording 0:06.6" width="780" height="1608" loading="lazy"></div></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="record-and-time">
+<section class="scene drum-scene" id="ideas" data-scene="drum" aria-labelledby="ideas-title">
+  <div class="scene-pin">
+    <div class="wrap drum-grid">
+      <div>
+        <span class="eyebrow">Not just for mornings</span>
+        <h2 class="title" id="ideas-title">What should get your attention?</h2>
+        <p class="lead">A voice, a moment, a reminder you can’t miss. For waking up, medication, cooking, leaving home or anything in between.</p>
+        <span class="drum-caption"><svg aria-hidden="true"><use href="#i-microphone"/></svg><span id="drum-caption">Coffee machine · 0:18</span></span>
+      </div>
+      <div class="drum-view" role="img" aria-label="A wheel of alarms with their own sounds: coffee machine at 6:30, a recorded wake up message at 7:00, medication at 8:15, the dog at 12:40, school pickup at 15:00, the cake at 17:30, a call at 19:00 and wind down at 22:30">
+        <div class="drum" id="drum"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tagline-band" aria-label="Ringbox in one line">
   <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">Record &amp; time</span>
-      <h2>Say it, pick when — done in three taps.</h2>
+    <p class="tagline" data-tagline><span class="hl">Not another beep.</span><br>Wake up to your own voice, your favorite song or your dog.</p>
+  </div>
+</section>
+
+<section class="scene prism-scene" id="how" data-scene="prism" aria-labelledby="how-title">
+  <div class="scene-pin">
+    <div class="wrap prism-grid">
+      <div class="psteps">
+        <div class="pstep on">
+          <span class="num">1</span>
+          <h2 class="title" id="how-title">Record or import.</h2>
+          <p class="lead">Say something you’d actually like to hear, or bring in a sound or song from Files. Up to 1:30 of material.</p>
+        </div>
+        <div class="pstep">
+          <span class="num">2</span>
+          <h2 class="title">Keep the best part.</h2>
+          <p class="lead">Drag the edges around the moment that matters. Up to 29 seconds, with fades and a volume boost if you want them.</p>
+        </div>
+        <div class="pstep">
+          <span class="num">3</span>
+          <h2 class="title">Hear it ring for real.</h2>
+          <p class="lead">Ringbox schedules a test alarm two minutes out, so you hear exactly how your morning will sound.</p>
+        </div>
+      </div>
+      <div class="prism-view">
+        <div class="iphone spin" id="spin" data-finish="pro-orange"><img class="front" id="spin-front" src="assets/media/iphone-f5-recording.webp" alt="Ringbox on iPhone: recording a sound, trimming the best part, then the alarm is set" width="780" height="1608"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" aria-labelledby="quick-title">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Quick timer, step by step</span>
+      <h2 class="title" id="quick-title">Say it, pick when.<br>Done in three taps.</h2>
       <p class="lead">For the moments a beep won’t do: “Take the pizza out.” “Move the car.” Ringbox records you and rings with your own words when the time is up.</p>
     </div>
-    <div class="qt-steps">
-      <div class="qt-step">
-        <div class="qt-stage"><span class="qt-badge"><svg class="qt-glyph" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="50" cy="56" r="36" stroke-width="8.5"/><path d="M50 12v8M78.8 27.2l7.2-7.2" stroke-width="7"/><path d="M39.2 50.2v11.6M44.6 44.8v22.4M50 38.9v34.2M55.4 46.1v19.8M60.8 50.6v10.8" stroke-width="7.2"/></g><rect x="40" y="3" width="20" height="9.5" rx="4" fill="currentColor"/></svg></span><b>Record &amp; time</b></div>
-        <h3><span class="num">1</span>Tap</h3>
-        <p>From the Timer tab, a Home Screen widget or a button in Control Center.</p>
-      </div>
-      <div class="qt-step">
-        <div class="qt-stage"><div class="qt-wave" aria-hidden="true"><i style="--h:30%;--d:0s"></i><i style="--h:62%;--d:.12s"></i><i style="--h:44%;--d:.24s"></i><i style="--h:90%;--d:.06s"></i><i style="--h:56%;--d:.3s"></i><i style="--h:76%;--d:.18s"></i><i style="--h:38%;--d:.36s"></i><i style="--h:68%;--d:.09s"></i><i style="--h:28%;--d:.27s"></i></div><span class="qt-rec"><span></span>0:03</span></div>
-        <h3><span class="num">2</span>Say it</h3>
-        <p>Recording starts on its own. Tap stop when you’re done — no editing needed.</p>
-      </div>
-      <div class="qt-step">
-        <div class="qt-stage"><div class="qt-grid" aria-hidden="true"><span>1</span><span>3</span><span class="on">5</span><span>10</span><span>15</span><span>30</span></div></div>
-        <h3><span class="num">3</span>Pick when</h3>
-        <p>Choose the minutes and the timer starts — with a countdown on the Lock Screen and in the Dynamic Island.</p>
-      </div>
+    <div class="grid-3 blobs">
+      <article class="blob reveal" style="--c:var(--coral)"><span class="k">1</span><h3>Tap</h3><p>From the Timer tab, a Home Screen widget or a button in Control Center.</p><div class="big" style="color:var(--record)">●</div></article>
+      <article class="blob reveal d1" style="--c:var(--lilac)"><span class="k">2</span><h3>Say it</h3><p>Recording starts on its own. Tap stop when you’re done. No editing needed.</p><div class="big">0:03</div></article>
+      <article class="blob reveal d2" style="--c:var(--lime)"><span class="k">3</span><h3>Pick when</h3><p>Choose the minutes and the countdown shows on the Lock Screen and in the Dynamic Island.</p><div class="mins"><span>1</span><span>3</span><span>5</span><span class="on">10</span><span>15</span><span>30</span></div></article>
     </div>
   </div>
 </section>
 
-<section id="widgets">
-  <div class="wrap widgets-band">
-    <div>
-      <span class="eyebrow">Widgets &amp; Control Center</span>
-      <h2>Your next alarm at a glance. Your next timer one tap away.</h2>
-      <p class="lead">See what rings next right on the Home Screen, start Record &amp; time or your last timer straight from a widget, and add Ringbox buttons to Control Center or the Action button.</p>
-      <ul class="ticks"><li>Next alarm widget</li><li>Record &amp; time widget</li><li>Last timer again</li><li>Control Center &amp; Action button</li></ul>
-    </div>
-    <img class="shot" src="assets/widgets.jpg" alt="Ringbox widgets on the iPhone Home Screen: next alarm, Record &amp; time and last timer" width="760" height="819" loading="lazy">
-  </div>
-</section>
-
-<section>
-  <div class="wrap band">
-    <div>
+<section class="pad" style="background:var(--bg-2)" aria-labelledby="rings-title">
+  <div class="wrap split">
+    <div class="reveal">
       <span class="eyebrow">Rings when it matters</span>
-      <h2>A real system alarm, not a notification.</h2>
-      <p class="lead">Ringbox schedules alarms and timers with Apple’s AlarmKit, so they ring like the built-in Clock app — on the Lock Screen, in the Dynamic Island and through Silent Mode and Focus.</p>
+      <h2 class="title" id="rings-title">A real system alarm.<br>Not a notification.</h2>
+      <p class="lead">Ringbox schedules alarms and timers with Apple’s AlarmKit, so they ring like the built in Clock app: on the Lock Screen, in the Dynamic Island and through Silent Mode and Focus.</p>
+      <div class="chips">
+        <span style="--c:var(--sun)"><svg aria-hidden="true"><use href="#i-bell-ringing"/></svg>Silent Mode</span>
+        <span style="--c:var(--lilac)"><svg aria-hidden="true"><use href="#i-moon"/></svg>Focus</span>
+        <span style="--c:var(--sky)"><svg aria-hidden="true"><use href="#i-lock-simple"/></svg>Locked screen</span>
+        <span style="--c:var(--lime)"><svg aria-hidden="true"><use href="#i-timer"/></svg>Live Activity</span>
+      </div>
     </div>
-    <div class="rows" aria-label="Where Ringbox alarms ring">
-      <div>Silent Mode</div><div>Focus</div><div>Locked Screen</div><div>Dynamic Island &amp; Live Activity</div>
+    <div class="lock reveal d1" role="img" aria-label="An alarm ringing on the Lock Screen at 7:00 with Snooze and Stop buttons">
+      <div class="top"><span class="app"><svg aria-hidden="true"><use href="#i-alarm"/></svg></span>Ringbox · Alarm</div>
+      <div><div class="clock">7:00</div><div class="what">Coffee machine ☕</div></div>
+      <div class="wave" aria-hidden="true"></div>
+      <div class="btns"><span class="snooze">Snooze</span><span class="stop">Stop</span></div>
     </div>
   </div>
 </section>
 
-<section id="plus" class="center">
-  <div class="wrap">
-    <span class="eyebrow">Free &amp; Plus</span>
-    <h2>Start free. Go Plus when one sound isn’t enough.</h2>
+<section class="pad" id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap center">
+    <div class="reveal">
+      <span class="eyebrow">Free and Plus</span>
+      <h2 class="title" id="pricing-title">Start free. Go Plus when<br>one sound isn’t enough.</h2>
+      <p class="lead">Alarms stay free and unlimited, always.</p>
+    </div>
     <div class="plans">
-      <div class="plan">
+      <article class="plan reveal">
         <h3>Free</h3>
-        <p class="price">$0</p>
-        <ul class="ticks list"><li>Unlimited alarms and timers</li><li>One custom sound — use it in every alarm</li><li>Try Record &amp; time</li><li>Next alarm and Record &amp; time widgets</li></ul>
-      </div>
-      <div class="plan plus">
+        <div class="price">$0</div>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Unlimited alarms and timers</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>One custom sound, in every alarm you like</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Record and time with your last timer</li>
+        </ul>
+      </article>
+      <article class="plan plus reveal d1">
         <h3>Ringbox Plus</h3>
-        <p class="price">$14.99<small> / year</small></p>
-        <p class="price-note">or $29.99 once, forever</p>
-        <ul class="ticks list"><li>Unlimited custom sounds</li><li>Unlimited Record &amp; time</li><li>Every widget</li><li>Every sound you make stays yours</li></ul>
+        <div class="price">$14.99 <small>per year</small></div>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Unlimited custom sounds</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Home Screen and Lock Screen widgets, Control Center</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Three recent timers, and keep their sounds</li>
+        </ul>
+        <p class="note">Or $29.99 once, yours for good.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="faq" style="background:var(--bg-2)" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="title" id="faq-title">Before your first alarm</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Will my alarm ring in Silent Mode or Focus?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>Yes. Ringbox schedules real system alarms with Apple’s AlarmKit, which ring on the Lock Screen and through Silent Mode and Focus, like the built in Clock app.</div></details>
+      <details><summary>How long can a sound be?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>You can record or import up to 1:30 and keep up to 29 seconds of it as the alarm sound, the most iOS allows for an alarm.</div></details>
+      <details><summary>Can I use a song?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>Yes. Import an audio file you have in Files and keep the best part. Protected songs from streaming services can’t be imported.</div></details>
+      <details><summary>Can I test an alarm?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>Yes. During setup Ringbox schedules a test alarm about two minutes ahead so you can hear exactly how it sounds.</div></details>
+      <details><summary>What if I delete a sound an alarm uses?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>Ringbox asks first. Alarms that used it switch to the system sound, so they still ring.</div></details>
+      <details><summary>Do my recordings leave my iPhone?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>No. Your sounds are stored on your iPhone and are never uploaded. There is no account.</div></details>
+      <details><summary>Which iPhones does Ringbox support?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><div>Any iPhone running iOS 26.1 or later, the version that brought AlarmKit.</div></details>
+    </div>
+    <p class="center small" style="margin-top:var(--s-400)">Something else? <a href="support/">Visit support</a></p>
+  </div>
+</section>
+
+<section class="pad" aria-labelledby="final-title">
+  <div class="wrap">
+    <div class="final reveal">
+      <h2 class="hero-title" id="final-title">Make your next alarm<br>worth waking up to.</h2>
+      <p class="lead">Ringbox is coming soon to iPhone.</p>
+      <div class="cta-row">
+        <span class="btn when-soon" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple-logo"/></svg>Coming soon to the App Store</span>
+        <a class="store-badge when-live" href="https://apps.apple.com/us/search?term=Ringbox" data-store-link><img src="assets/app-store-badge-white.svg" alt="Download on the App Store" width="156" height="52"></a>
       </div>
     </div>
-    <p class="fine">Prices in US dollars; the App Store shows the price for your country. Alarms and sounds you already made keep ringing whatever happens to a purchase.</p>
   </div>
 </section>
 
-<section class="center">
-  <div class="wrap">
-    <span class="eyebrow">Private by design</span>
-    <h2>Your voice stays yours.</h2>
-    <div class="features">
-      <div class="feature"><h3>On your iPhone</h3><p>Recordings and sounds are stored only on your device.</p></div>
-      <div class="feature"><h3>No account</h3><p>Nothing to sign up for, nothing to log in to.</p></div>
-      <div class="feature"><h3>No tracking</h3><p>No ads, no analytics SDK, no profiles.</p></div>
-      <div class="feature"><h3>Free to start</h3><p>Unlimited alarms and your first custom sound, free forever.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <img src="assets/app-icon-512.png" alt="Ringbox app icon" width="112" height="112">
-    <h2 style="margin-top:22px">Wake up to something that matters.</h2>
-    <p class="lead" style="margin-inline:auto">Ringbox is coming soon for iPhone.</p>
-    <span class="pill">Coming soon <span>to the App Store</span></span>
-  </div>
-</section>
 </main>
-<footer class="site-footer">
+
+<footer class="footer">
   <div class="wrap">
-    <nav class="footer-links" aria-label="Footer"><a href="./">Ringbox</a><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="mailto:bashubb.dev@gmail.com">Email</a></nav>
-    <p>Made by <a href="https://bashubb.com/">bashubb</a> · For iPhone</p>
+    <a class="brand" href="./"><img src="assets/icon-128.png" alt="" width="24" height="24">Ringbox</a>
+    <nav aria-label="Footer">
+      <a href="privacy/">Privacy Policy</a>
+      <a href="support/">Support</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      <a href="https://bashubb.com/">More apps by bashubb</a>
+    </nav>
+    <span>© 2026 bashubb</span>
   </div>
 </footer>
+
+<script src="assets/landing.js?v=1"></script>
+<script>
+(() => {
+  const L = window.Landing;
+  const reduce = L.reduceMotion();
+
+  // Waveforms
+  const fill = (el, n, seed) => {
+    let x = seed;
+    for (let i = 0; i < n; i++) {
+      x = (x * 9301 + 49297) % 233280;
+      const h = 18 + (x / 233280) * 82 * Math.sin((i / n) * Math.PI) + 6;
+      const b = document.createElement("i");
+      b.style.setProperty("--h", Math.min(100, h).toFixed(0) + "%");
+      b.style.setProperty("--d", (-(i % 7) * 0.21).toFixed(2) + "s");
+      el.append(b);
+    }
+  };
+  fill(document.querySelector(".ring-card .wave"), 26, 7);
+  fill(document.querySelector(".lock .wave"), 32, 3);
+
+  // Drum of alarms
+  const alarms = [
+    ["6:30", "Coffee machine ☕", "0:18", "sun"],
+    ["7:00", "“Rise and shine, it’s Friday”", "0:04", "sky"],
+    ["8:15", "Take your meds 💊", "0:03", "lime"],
+    ["12:40", "Woof 🐕", "0:02", "coral"],
+    ["15:00", "Pick up Leo", "0:05", "lilac"],
+    ["17:30", "Take the cake out 🎂", "0:03", "sun"],
+    ["19:00", "Call Mom", "0:04", "sky"],
+    ["22:30", "Wind down 🌙", "0:15", "lime"],
+  ];
+  const drum = document.getElementById("drum");
+  const caption = document.getElementById("drum-caption");
+  const N = alarms.length, step = 26;
+  const cards = alarms.map(([t, n, d, c], i) => {
+    const el = document.createElement("div");
+    el.className = "alarm";
+    el.style.setProperty("--c", `var(--${c})`);
+    const bars = Array.from({ length: 9 }, (_, k) => `<i style="height:${30 + ((k * 37 + i * 11) % 70)}%"></i>`).join("");
+    el.innerHTML = `<span class="t">${t}</span><span><span class="n">${n}</span><span class="m"><span class="bars">${bars}</span>${d}</span></span><span class="play"><svg><use href="#i-play"/></svg></span>`;
+    drum.append(el);
+    return el;
+  });
+  const radius = () => (drum.offsetHeight + 14) / (2 * Math.tan((step / 2) * Math.PI / 180));
+  L.scene("drum", (p) => {
+    const R = radius();
+    const pos = reduce ? Math.round(p * (N - 1)) : p * (N - 1);
+    drum.style.transform = `translateZ(${-R}px) rotateX(${pos * step}deg)`;
+    const front = Math.round(pos);
+    cards.forEach((c, i) => {
+      c.style.transform = `rotateX(${-i * step}deg) translateZ(${R}px)`;
+      const d = Math.abs(i - pos);
+      c.style.opacity = Math.max(0, 1 - d * 0.24).toFixed(3);
+      c.style.visibility = d > 3.6 ? "hidden" : "";
+      c.classList.toggle("front", i === front);
+    });
+    const [, n, d] = alarms[front];
+    const text = `${n.replace(/[“”]/g, "")} · ${d}`;
+    if (caption.textContent !== text) caption.textContent = text;
+  });
+
+  // One real iPhone that spins a full turn between steps; the screen changes while its back faces you
+  const spin = document.getElementById("spin");
+  const front = document.getElementById("spin-front");
+  const screens = ["assets/media/iphone-f5-recording.webp", "assets/media/iphone-f5-trim.webp", "assets/media/iphone-f7-done.webp"];
+  screens.forEach((src) => { const i = new Image(); i.src = src; });
+  const psteps = [...document.querySelectorAll(".pstep")];
+  L.scene("prism", (p) => {
+    const s = Math.min(1.999, p * 2.4);
+    const base = Math.floor(s), frac = s - base;
+    const turn = reduce ? (frac > 0.5 ? 1 : 0) : L.ease(L.range(frac, 0.5, 0.95));
+    const pos = Math.min(2, base + turn);
+    const angle = pos * 360;
+    spin.style.transform = reduce ? "" : `rotateY(${-22 + angle}deg) rotateX(8deg) rotateZ(-3deg)`;
+    L.phoneSide(spin, reduce ? 0 : -22 + angle);
+    // screen index: switch halfway through the turn, when the back is towards the viewer
+    const idx = Math.min(2, Math.floor(pos + 0.5));
+    if (!front.src.endsWith(screens[idx])) front.src = screens[idx];
+    psteps.forEach((el, i) => el.classList.toggle("on", i === Math.round(pos)));
+  });
+})();
+</script>
 </body>
 </html>
