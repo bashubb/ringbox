@@ -191,20 +191,24 @@
 @media (max-width: 720px) { .way-phone { height: 270px; } .way-phone .iphone { --w: min(56vw, 230px); } }
 @media (prefers-reduced-motion: reduce) { .way-phone .iphone { transform: none; opacity: 1; } }
 
-/* ===== Phones: same scenes, tighter content ===== */
+/* ===== Phones: the desktop page in one column, sized to read ===== */
 @media (max-width: 720px) {
-  .plans { grid-template-columns: 1fr 1fr; gap: var(--s-100); }
-  .plan { padding: var(--s-200); border-radius: 24px; gap: var(--s-100); }
-  .plan .price { font-size: 24px; line-height: 32px; }
-  .plan li { font-size: 12px; line-height: 16px; }
-  .plan li svg { width: 14px; height: 14px; margin-top: 1px; }
-  .plan .note { font-size: 12px; line-height: 16px; }
+  .plans { grid-template-columns: 1fr; gap: var(--s-200); margin-top: var(--s-400); }
+  .plan { padding: var(--s-300); border-radius: 28px; }
+  .plan .price { font-size: 36px; line-height: 40px; }
   .lock { padding: var(--s-300); border-radius: 32px; gap: var(--s-200); }
-  .lock .clock { font-size: 60px; }
-  .chips span { font-size: 12px; padding: var(--s-50) var(--s-100); }
+  .lock .clock { font-size: 72px; }
   .way-steps li { font-size: 14px; line-height: 20px; }
+}
+/* the drum keeps its line of text on phones tall enough for it */
+@media (max-width: 900px) and (min-height: 740px) {
+  .drum-scene .lead { display: block; margin-top: var(--s-100); font-size: 16px; line-height: 24px; }
+  .drum-caption { margin-top: var(--s-200); }
+  .drum-view { height: calc(100svh - 400px - var(--ui-bottom)); }
 }
 
 /* card phones always stand upright: no lying-down start state */
 .way-phone { perspective: none !important; }
 .way-phone .iphone, .tilt .iphone { transform: none !important; opacity: 1 !important; }
+
+@media (pointer: coarse) { .pstep { filter: none !important; } }
