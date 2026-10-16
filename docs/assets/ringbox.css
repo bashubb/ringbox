@@ -53,7 +53,7 @@
 .ring-card .label { display: inline-flex; align-self: flex-start; align-items: center; gap: var(--s-75); padding: var(--s-75) var(--s-200); border-radius: 9999px; background: var(--text); color: #fff; font-size: 14px; line-height: 20px; font-weight: 600; }
 .ring-card .label .dot { width: 8px; height: 8px; border-radius: 9999px; background: var(--record); animation: blink 1.2s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0.2; } }
-@media (max-width: 480px) { .ring-card { padding: var(--s-400); border-radius: 40px; } .ring-card .time { font-size: 96px; } .ring-card .time svg { width: 36px; height: 36px; } }
+@media (max-width: 480px) { .ring-card { padding: var(--s-400); border-radius: 40px; } }
 
 /* Drum: alarm cards on a wheel, like the time picker */
 .drum-scene { height: 380vh; }
@@ -230,8 +230,6 @@
   .hero .cta-row { margin-top: var(--s-200); }
   .hero .proof { display: none; }
   .ring-card { width: calc(var(--m-room) - var(--s-600)); padding: var(--s-300); border-radius: 32px; }
-  .ring-card .time { font-size: 60px; }
-  .ring-card .time svg { width: 28px; height: 28px; }
   .ways, .plans, .split { grid-template-columns: 1fr 1fr; }
   .way-head h3 { font-size: 24px; line-height: 32px; }
   .way-phone { height: 200px; }
@@ -242,3 +240,10 @@
   .lock .wave { height: 32px; }
   .lock .btns span { min-height: 44px; }
 }
+
+/* The 7:00 card scales with its own width, so it reads the same in any column, window or orientation */
+.ring-card { container-type: inline-size; }
+.ring-card .time { font-size: clamp(48px, 26cqw, 128px); gap: 4cqw; }
+.ring-card .time svg { width: clamp(24px, 9.5cqw, 48px); height: clamp(24px, 9.5cqw, 48px); margin-bottom: 1.6cqw; }
+.ring-card .label { white-space: nowrap; font-size: clamp(12px, 3.2cqw, 14px); padding: clamp(4px, 1.6cqw, 8px) clamp(8px, 3.2cqw, 16px); }
+.ring-card .wave { gap: clamp(2px, 1.2cqw, 6px); }
