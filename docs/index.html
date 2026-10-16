@@ -20,8 +20,8 @@
 <link rel="icon" href="assets/fav/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/fav/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/landing.css?v=30">
-<link rel="stylesheet" href="assets/ringbox.css?v=41">
+<link rel="stylesheet" href="assets/landing.css?v=41">
+<link rel="stylesheet" href="assets/ringbox.css?v=43">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,7 +79,7 @@
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
-    <div class="reveal">
+    <div class="reveal m-fit">
       <span class="eyebrow">Personal alarms for iPhone</span>
       <h1 class="hero-title" id="hero-title">Your alarm shouldn’t sound<br>like everyone else’s.</h1>
       <p class="lead">Alarms that ring with your voice, a song or any sound you love. Plus a quick timer you set by just saying what it’s for, so it rings with your own words.</p>
@@ -139,7 +139,7 @@
   </div>
 </section>
 
-<section class="scene drum-scene" id="ideas" data-scene="drum" aria-labelledby="ideas-title">
+<section class="scene drum-scene d-only" id="ideas" data-scene="drum" aria-labelledby="ideas-title">
   <div class="scene-pin">
     <div class="wrap drum-grid">
       <div>
@@ -155,13 +155,22 @@
   </div>
 </section>
 
+<section class="m-only m-sec ideas-m" id="ideas-m" aria-labelledby="ideas-m-title">
+  <div class="wrap">
+    <span class="eyebrow">Not just for mornings</span>
+    <h2 class="title" id="ideas-m-title">What should get your attention?</h2>
+    <p class="lead">A voice, a moment, a reminder you can’t miss. For waking up, medication, cooking, leaving home or anything in between.</p>
+  </div>
+  <div class="m-marquee" role="img" aria-label="Alarms with their own sounds: coffee machine at 6:30, a recorded wake up message at 7:00, medication at 8:15, the dog at 12:40, school pickup at 15:00, the cake at 17:30, a call at 19:00 and wind down at 22:30"><div id="alarm-row"></div></div>
+</section>
+
 <section class="tagline-band" aria-label="Ringbox in one line">
   <div class="wrap">
     <p class="tagline" data-tagline><span class="hl">Not another beep.</span><br>Wake up to your own voice, your favorite song or your dog.</p>
   </div>
 </section>
 
-<section class="scene prism-scene" id="how" data-scene="prism" aria-labelledby="how-title">
+<section class="scene prism-scene d-only" id="how" data-scene="prism" aria-labelledby="how-title">
   <div class="scene-pin">
     <div class="wrap prism-grid">
       <div class="psteps">
@@ -185,6 +194,26 @@
         <div class="iphone spin" id="spin" data-finish="pro-orange"><img class="front" id="spin-front" src="assets/media/iphone-f5-recording.webp" alt="Ringbox on iPhone: recording a sound, trimming the best part, then the alarm is set" width="780" height="1608"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="m-only m-sec how-m" id="how-m" aria-labelledby="how-m-title">
+  <div class="m-car" data-carousel="5500">
+    <div class="m-track">
+      <div class="m-slide">
+        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f5-recording.webp" alt="Recording a sound in Ringbox: 0:05.1 of 1:30" width="780" height="1608" loading="lazy"></div></div>
+        <div class="m-txt"><span class="num">1</span><h2 class="title" id="how-m-title">Record or import.</h2><p class="lead">Say something you’d actually like to hear, or bring in a sound or song from Files. Up to 1:30 of material.</p></div>
+      </div>
+      <div class="m-slide">
+        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f5-trim.webp" alt="Trimming the recording to the best part, with fade in, fade out and volume boost" width="780" height="1608" loading="lazy"></div></div>
+        <div class="m-txt"><span class="num">2</span><h2 class="title">Keep the best part.</h2><p class="lead">Drag the edges around the moment that matters. Up to 29 seconds, with fades and a volume boost if you want them.</p></div>
+      </div>
+      <div class="m-slide">
+        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f7-done.webp" alt="All set: your alarm rings at 19:14" width="780" height="1608" loading="lazy"></div></div>
+        <div class="m-txt"><span class="num">3</span><h2 class="title">Hear it ring for real.</h2><p class="lead">Ringbox schedules a test alarm two minutes out, so you hear exactly how your morning will sound.</p></div>
+      </div>
+    </div>
+    <div class="m-dots"></div>
   </div>
 </section>
 
@@ -286,7 +315,7 @@
   </div>
 </footer>
 
-<script src="assets/landing.js?v=30"></script>
+<script src="assets/landing.js?v=41"></script>
 <script>
 (() => {
   const L = window.Landing;
@@ -330,6 +359,9 @@
     drum.append(el);
     return el;
   });
+  // phones: the same alarms drift by in a row
+  const row = document.getElementById("alarm-row");
+  if (L.phone) [0, 1].forEach((copy) => cards.forEach((c) => { const k = c.cloneNode(true); if (copy) k.setAttribute("aria-hidden", "true"); row.append(k); }));
   const radius = () => (drum.offsetHeight + 14) / (2 * Math.tan((step / 2) * Math.PI / 180));
   L.scene("drum", (p) => {
     const R = radius();

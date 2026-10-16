@@ -200,15 +200,45 @@
   .lock .clock { font-size: 72px; }
   .way-steps li { font-size: 14px; line-height: 20px; }
 }
-/* the drum keeps its line of text on phones tall enough for it */
-@media (max-width: 900px) and (min-height: 740px) {
-  .drum-scene .lead { display: block; margin-top: var(--s-100); font-size: 16px; line-height: 24px; }
-  .drum-caption { margin-top: var(--s-200); }
-  .drum-view { height: calc(100svh - 400px - var(--ui-bottom)); }
-}
 
 /* card phones always stand upright: no lying-down start state */
 .way-phone { perspective: none !important; }
 .way-phone .iphone, .tilt .iphone { transform: none !important; opacity: 1 !important; }
 
-@media (pointer: coarse) { .pstep { filter: none !important; } }
+/* ===== Phones, portrait and landscape: their own layout (system in landing.css) ===== */
+@media (max-width: 720px), (pointer: coarse) and (max-height: 540px) {
+  .hero { padding: calc(var(--nav-h) + var(--s-400)) 0 var(--s-700); }
+  .ring-card { width: min(100%, calc(var(--m-room) * 0.62)); justify-self: center; }
+  .ideas-m .lead { margin-top: var(--s-100); }
+  .ideas-m .m-marquee { margin-top: var(--s-300); }
+  .ideas-m .m-marquee > div { --drift: 48s; padding-block: var(--s-75); }
+  .ideas-m .alarm { position: relative; inset: auto; width: min(80vw, 340px); height: 88px; }
+  .how-m { background: var(--bg-2); }
+  .how-m .num { display: inline-flex; width: 32px; height: 32px; margin-bottom: var(--s-100); align-items: center; justify-content: center; border-radius: 9999px; background: var(--text); color: #fff; font-weight: 700; font-size: 14px; }
+  .how-m h2.title { font-size: 30px; line-height: 36px; }
+  .how-m .m-dots { --dot: var(--text); }
+  .lock { padding: var(--s-300); border-radius: 32px; gap: var(--s-200); }
+  .lock .clock { font-size: 72px; }
+  .plans { gap: var(--s-200); margin-top: var(--s-400); }
+  .plan .price { font-size: 36px; line-height: 40px; }
+}
+@media (max-width: 720px) and (orientation: landscape), (pointer: coarse) and (max-height: 540px) and (orientation: landscape) {
+  .hero { padding-top: calc(var(--nav-h) + var(--s-300)); }
+  .hero-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--s-400); }
+  .hero .hero-title { font-size: 30px; line-height: 36px; }
+  .hero .lead { font-size: 14px; line-height: 20px; margin-top: var(--s-100); }
+  .hero .cta-row { margin-top: var(--s-200); }
+  .hero .proof { display: none; }
+  .ring-card { width: calc(var(--m-room) - var(--s-600)); padding: var(--s-300); border-radius: 32px; }
+  .ring-card .time { font-size: 60px; }
+  .ring-card .time svg { width: 28px; height: 28px; }
+  .ways, .plans, .split { grid-template-columns: 1fr 1fr; }
+  .way-head h3 { font-size: 24px; line-height: 32px; }
+  .way-phone { height: 200px; }
+  .way-phone .iphone { --w: 160px; }
+  .ideas-m .lead { max-width: 640px; }
+  .lock { max-width: 360px; padding: var(--s-200); gap: var(--s-100); }
+  .lock .clock { font-size: 48px; }
+  .lock .wave { height: 32px; }
+  .lock .btns span { min-height: 44px; }
+}
