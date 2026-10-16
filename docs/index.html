@@ -20,7 +20,7 @@
 <link rel="icon" href="assets/fav/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/fav/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/landing.css?v=48">
+<link rel="stylesheet" href="assets/landing.css?v=50">
 <link rel="stylesheet" href="assets/ringbox.css?v=49">
 <script type="application/ld+json">
 {
@@ -89,7 +89,6 @@
     <video id="rb-film" muted loop playsinline preload="auto" poster="assets/media/ringbox-film-wide-poster.jpg" aria-label="Animated film: every alarm sounds the same; Ringbox rings with your voice, your dog, your favourite song trimmed to 29 seconds or the coffee machine; real alarms even on Silent; a quick timer you set by saying what it is for">
       <source src="assets/media/ringbox-film-wide.mp4" type="video/mp4">
     </video>
-    <button class="film-play" type="button" id="rb-film-toggle" aria-label="Pause film"><svg aria-hidden="true" viewBox="0 0 24 24"><path class="pp" d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg></button>
   </figure>
 </section>
 
@@ -331,15 +330,11 @@
   const L = window.Landing;
   const reduce = L.reduceMotion();
 
-  // Desktop film: plays while on screen, loops, can be paused
-  const rbf = document.getElementById("rb-film"), rbt = document.getElementById("rb-film-toggle");
-  if (!L.phone && rbf) {
-    let paused = reduce;
-    const icon = () => { rbt.querySelector(".pp").setAttribute("d", rbf.paused ? "M8 5l11 7-11 7z" : "M7 5h3v14H7zM14 5h3v14h-3z"); rbt.setAttribute("aria-label", rbf.paused ? "Play film" : "Pause film"); };
-    ["play", "pause"].forEach((e) => rbf.addEventListener(e, icon));
-    rbt.addEventListener("click", () => { if (rbf.paused) { paused = false; rbf.play(); } else { paused = true; rbf.pause(); } });
-    new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting && !paused) { rbf.preload = "auto"; rbf.play().catch(() => {}); } else if (!e.isIntersecting) rbf.pause(); }), { threshold: 0.4 }).observe(rbf);
-    icon();
+  // Desktop film: plays while on screen, loops
+  const rbf = document.getElementById("rb-film");
+  if (!L.phone && rbf && !reduce) {
+    rbf.muted = true;
+    new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) rbf.play().catch(() => {}); else rbf.pause(); }), { threshold: 0.4 }).observe(rbf);
   }
 
   // Waveforms
