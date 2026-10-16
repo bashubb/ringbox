@@ -264,9 +264,9 @@
 }
 @media (max-width: 720px) and (orientation: landscape), (pointer: coarse) and (max-height: 540px) and (orientation: landscape) { .how-m .m-txt > * { margin-inline: 0; } }
 
-/* The film: a big card under the hero (desktop); phones open with it full screen */
-.film-sec { padding: 0 0 var(--s-900); }
-.film-card { position: relative; margin: 0; aspect-ratio: 16 / 9; border-radius: 40px; overflow: hidden; background: var(--ink, #151515); }
+/* The film is the first section on desktop: full bleed under the bar, no frame; phones open with it full screen */
+.film-sec { padding: calc(56px + env(safe-area-inset-top, 0px)) 0 0; background: #f4f2ed; }
+.film-card { position: relative; margin: 0; height: calc(100svh - 56px); min-height: 420px; overflow: hidden; background: #f4f2ed; }
 .film-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .film-play { position: absolute; right: var(--s-300); bottom: var(--s-300); display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 9999px; background: #151515; color: #fff; cursor: pointer; transition: transform 160ms var(--ease); }
 .film-play:active { transform: scale(0.96); }
