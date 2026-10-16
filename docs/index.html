@@ -20,8 +20,8 @@
 <link rel="icon" href="assets/fav/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/fav/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/landing.css?v=45">
-<link rel="stylesheet" href="assets/ringbox.css?v=44">
+<link rel="stylesheet" href="assets/landing.css?v=47">
+<link rel="stylesheet" href="assets/ringbox.css?v=47">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -198,22 +198,16 @@
 </section>
 
 <section class="m-only m-sec how-m" id="how-m" aria-labelledby="how-m-title">
-  <div class="m-car" data-carousel="5500">
-    <div class="m-track">
-      <div class="m-slide">
-        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f5-recording.webp" alt="Recording a sound in Ringbox: 0:05.1 of 1:30" width="780" height="1608" loading="lazy"></div></div>
-        <div class="m-txt"><span class="num">1</span><h2 class="title" id="how-m-title">Record or import.</h2><p class="lead">Say something you’d actually like to hear, or bring in a sound or song from Files. Up to 1:30 of material.</p></div>
+  <div class="how-m-grid">
+    <div class="m-vis"><div class="iphone" id="m-spin" data-finish="pro-orange"><img class="front" id="m-spin-front" src="assets/media/iphone-f5-recording.webp" alt="Ringbox on iPhone: recording a sound, trimming the best part, then the alarm is set" width="780" height="1608"></div></div>
+    <div class="m-car" data-carousel="5000">
+      <div class="m-track">
+      <div class="m-txt"><span class="num">1</span><h2 class="title" id="how-m-title">Record or import.</h2><p class="lead">Say something you’d actually like to hear, or bring in a sound or song from Files. Up to 1:30 of material.</p></div>
+      <div class="m-txt"><span class="num">2</span><h2 class="title">Keep the best part.</h2><p class="lead">Drag the edges around the moment that matters. Up to 29 seconds, with fades and a volume boost if you want them.</p></div>
+      <div class="m-txt"><span class="num">3</span><h2 class="title">Hear it ring for real.</h2><p class="lead">Ringbox schedules a test alarm two minutes out, so you hear exactly how your morning will sound.</p></div>
       </div>
-      <div class="m-slide">
-        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f5-trim.webp" alt="Trimming the recording to the best part, with fade in, fade out and volume boost" width="780" height="1608" loading="lazy"></div></div>
-        <div class="m-txt"><span class="num">2</span><h2 class="title">Keep the best part.</h2><p class="lead">Drag the edges around the moment that matters. Up to 29 seconds, with fades and a volume boost if you want them.</p></div>
-      </div>
-      <div class="m-slide">
-        <div class="m-vis"><div class="iphone" data-finish="pro-orange"><img class="front" src="assets/media/iphone-f7-done.webp" alt="All set: your alarm rings at 19:14" width="780" height="1608" loading="lazy"></div></div>
-        <div class="m-txt"><span class="num">3</span><h2 class="title">Hear it ring for real.</h2><p class="lead">Ringbox schedules a test alarm two minutes out, so you hear exactly how your morning will sound.</p></div>
-      </div>
+      <div class="m-dots"></div>
     </div>
-    <div class="m-dots"></div>
   </div>
 </section>
 
@@ -315,7 +309,7 @@
   </div>
 </footer>
 
-<script src="assets/landing.js?v=45"></script>
+<script src="assets/landing.js?v=47"></script>
 <script>
 (() => {
   const L = window.Landing;
@@ -379,6 +373,31 @@
     const text = `${n.replace(/[“”]/g, "")} · ${d}`;
     if (caption.textContent !== text) caption.textContent = text;
   });
+
+  // Phones: the same iPhone spins a full turn each time the steps carousel moves on; the screen changes while its back faces you
+  const mSpin = document.getElementById("m-spin"), mFront = document.getElementById("m-spin-front");
+  const mCar = document.querySelector(".how-m .m-car");
+  if (L.phone && mSpin && mCar) {
+    const shots = ["assets/media/iphone-f5-recording.webp", "assets/media/iphone-f5-trim.webp", "assets/media/iphone-f7-done.webp"];
+    shots.forEach((src) => { const i = new Image(); i.src = src; });
+    let angle = 0, raf = 0;
+    mCar.addEventListener("slide", (e) => {
+      const next = shots[e.detail];
+      if (reduce || mFront.src.endsWith(next)) { mFront.src = next; return; }
+      cancelAnimationFrame(raf);
+      const from = angle, to = Math.ceil((angle + 1) / 360) * 360, t0 = performance.now();
+      let swapped = false;
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / 1100), ease = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+        angle = from + (to - from) * ease;
+        mSpin.style.transform = `rotateY(${angle.toFixed(2)}deg)`;
+        L.phoneSide(mSpin, angle);
+        if (!swapped && Math.cos((angle * Math.PI) / 180) < 0) { swapped = true; mFront.src = next; }
+        if (k < 1) raf = requestAnimationFrame(step); else { angle = to % 360; mSpin.style.transform = ""; L.phoneSide(mSpin, 0); }
+      };
+      raf = requestAnimationFrame(step);
+    });
+  }
 
   // One real iPhone that spins a full turn between steps; the screen changes while its back faces you
   const spin = document.getElementById("spin");
