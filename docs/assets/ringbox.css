@@ -207,7 +207,7 @@
 
 /* ===== Phones, portrait and landscape: their own layout (system in landing.css) ===== */
 @media (max-width: 720px), (pointer: coarse) and (max-height: 540px) {
-  .hero { padding: calc(var(--nav-h) + var(--s-400)) 0 var(--s-700); }
+  .hero { padding: var(--s-700) 0; }
   .ring-card { width: min(100%, calc(var(--m-room) * 0.62)); justify-self: center; }
   .ideas-m .lead { margin-top: var(--s-100); }
   .ideas-m .m-marquee { margin-top: var(--s-300); }
@@ -223,7 +223,7 @@
   .plan .price { font-size: 36px; line-height: 40px; }
 }
 @media (max-width: 720px) and (orientation: landscape), (pointer: coarse) and (max-height: 540px) and (orientation: landscape) {
-  .hero { padding-top: calc(var(--nav-h) + var(--s-300)); }
+  .hero { padding-top: var(--s-600); }
   .hero-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--s-400); }
   .hero .hero-title { font-size: 30px; line-height: 36px; }
   .hero .lead { font-size: 14px; line-height: 20px; margin-top: var(--s-100); }
